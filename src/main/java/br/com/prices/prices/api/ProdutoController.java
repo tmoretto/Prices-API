@@ -20,7 +20,7 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository repository;
 
-	@CrossOrigin
+	@CrossOrigin(origins = { "*" }, maxAge = 6000)
 	@GetMapping
 	public ResponseEntity<List<Produto>> obterTodos() {
 		List<Produto> precosProdutos = repository.findAll(); 
