@@ -38,8 +38,8 @@ public class PrecoProduto implements Serializable {
     private Produto produto;
 
 	@NotNull
-	@Column(name = "quantidade_disponivel")
-    private Integer quantidadeDisponivel;
+	@Column(name = "quantidade_minima")
+    private Integer quantidadeMinima;
 
 	@NotNull
     private BigDecimal preco;
@@ -68,12 +68,12 @@ public class PrecoProduto implements Serializable {
 		this.produto = produto;
 	}
 
-	public Integer getQuantidadeDisponivel() {
-		return quantidadeDisponivel;
+	public Integer getQuantidadeMinima() {
+		return quantidadeMinima;
 	}
 
-	public void setQuantidadeDisponivel(Integer quantidadeDisponivel) {
-		this.quantidadeDisponivel = quantidadeDisponivel;
+	public void setQuantidadeMinima(Integer quantidadeMinima) {
+		this.quantidadeMinima = quantidadeMinima;
 	}
 
 	public BigDecimal getPreco() {

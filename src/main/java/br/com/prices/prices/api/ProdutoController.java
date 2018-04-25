@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,7 +30,16 @@ public class ProdutoController {
 		}
 		return new ResponseEntity<List<Produto>>(precosProdutos, HttpStatus.OK);
 	}
-
+	
+	@CrossOrigin(origins = { "*" }, maxAge = 6000)
+	@GetMapping("/{codigoBarras}")
+	public ResponseEntity<Produto> obterPorCodigoDeBarras(@PathVariable String codigoBarras) {
+		Produto produto = repository.findOneProdutoByCodigoBarras(codigoBarras);
+		if (produto == null) {
+			return new ResponseEntity<Produto>(HttpStatus.NO_CONTENT);
+		}
+		return new ResponseEntity<Produto>(produto, HttpStatus.OK);
+	}
 }
 
 
