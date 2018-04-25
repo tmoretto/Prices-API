@@ -13,7 +13,7 @@ import br.com.prices.prices.model.Produto;
 import br.com.prices.prices.repository.ProdutoRepository;
 
 @RestController
-@RequestMapping("/api/precos")
+@RequestMapping("/api")
 public class ProdutoController {
 
 	@Autowired
