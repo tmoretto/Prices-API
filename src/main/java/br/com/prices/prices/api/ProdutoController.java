@@ -1,5 +1,6 @@
 package br.com.prices.prices.api;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +34,12 @@ public class ProdutoController {
 	
 	@CrossOrigin(origins = { "*" }, maxAge = 6000)
 	@GetMapping("/{codigoBarras}")
-	public ResponseEntity<Produto> obterPorCodigoDeBarras(@PathVariable String codigoBarras) {
+	public ResponseEntity<List<Produto>> obterPorCodigoDeBarras(@PathVariable String codigoBarras) {
 		Produto produto = repository.findOneProdutoByCodigoBarras(codigoBarras);
 		if (produto == null) {
-			return new ResponseEntity<Produto>(HttpStatus.NO_CONTENT);
+			return new ResponseEntity<List<Produto>>(HttpStatus.NO_CONTENT);
 		}
-		return new ResponseEntity<Produto>(produto, HttpStatus.OK);
+		return new ResponseEntity<List<Produto>>(Arrays.asList(produto), HttpStatus.OK);
 	}
 }
 
