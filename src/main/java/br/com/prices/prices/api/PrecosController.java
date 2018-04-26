@@ -36,7 +36,7 @@ public class PrecosController {
 	@CrossOrigin(origins = { "*" }, maxAge = 6000)
 	@GetMapping("/{codigoBarras}")
 	public ResponseEntity<List<Fornecedor>> obterPorCodigoDeBarras(@PathVariable String codigoBarras) {
-		List<Fornecedor> fornecedores = repository.findFornecedorByPrecosProdutoCodigoBarras(codigoBarras);
+		List<Fornecedor> fornecedores = repository.findAll();
 		
 		fornecedores.forEach(fornecedor -> {
 			System.out.println(fornecedor.getPrecos().size());
