@@ -29,12 +29,12 @@ public class PrecoProduto implements Serializable {
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "cnpj")
+	@JsonBackReference
     private Fornecedor fornecedor;
 	
 	@NotNull
 	@ManyToOne
 	@JoinColumn(name = "codigo_barras")
-	@JsonBackReference
     private Produto produto;
 
 	@NotNull
